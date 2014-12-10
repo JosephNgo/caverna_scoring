@@ -1,4 +1,4 @@
-
+var totalScore = 0;
 var subtract = function(){
   document.getElementById("dog").value --;
   updateScore();
@@ -11,7 +11,7 @@ var add = function(){
 
 
 var updateScore = function(){
-  var totalScore = document.getElementById("dog").value;
+  totalScore += 
   document.getElementById("score").innerHTML = ("Score: " + totalScore );
 }
 
