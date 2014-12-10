@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caverna Scoring</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <script src="js/custom.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1 id="score">Score:</h1>
+
+    <div class="container-fluid">
+      <div class="row"><!-- animals row -->
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Dogs</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="dog" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+<!-- ================================================================-->
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Sheep</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="sheep" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Donkeys</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="donkey" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Boars</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="boar" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Cattle</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="cattle" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+      </div><!--end of animals row-->
+    </div><!--end of container-fluid -->
+
+    <div class="container-fluid">
+      <div class="row"><!-- animals row -->
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Grain</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="grain" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Vegetable</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="vegetable" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Rubies</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="ruby" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Gold</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="gold" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 tile">
+          <div class="row">
+            <div class="col-xs-3 col-md-3 ">Begging Cards</div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+            </div>
+            <div >
+              <input type="text" class="col-xs-3 col-md-3" id="baggingCard" size="2" value="0">
+            </div>
+            <div class="col-xs-3 col-md-3">
+              <button type="button" class="btn btn-success" onclick="add()">+</button>
+            </div>
+          </div>
+        </div>
+      </div><!--end of animals row-->
+    </div><!--end of container-fluid -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
