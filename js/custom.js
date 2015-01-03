@@ -1,17 +1,23 @@
 var totalScore = 0;
+
 var subtract = function(){
+  var subscore = 0;
   document.getElementById("dog").value --;
-  updateScore();
+  subscore = document.getElementById("dog").value;
+  updateScore(subscore);
 };
 
 var add = function(){
-  document.getElementById("dog").value ++ ;
-  updateScore();
+  var subscore = 0;
+  document.getElementById("dog").value ++;
+  subscore = Number(document.getElementById("dog").value);
+  updateScore(subscore);
 };
 
 
-var updateScore = function(){
-  totalScore += 
+var updateScore = function(subscore){
+  totalScore += subscore;
   document.getElementById("score").innerHTML = ("Score: " + totalScore );
 }
 
+// function wishlist
