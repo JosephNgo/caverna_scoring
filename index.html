@@ -9,7 +9,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-    <script src="js/custom.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,50 +19,67 @@
     <![endif]-->
   </head>
   <body>
-    <h1 id="score">Score: 0</h1>
+    <div class="navbar navbar-default navbar-fixed-top tabs-container">
+      <ul class="scoring-pagination pagination tabs">
+        <li class="tab">
+          <a href="#wealthTab">WEALTH</a>
+        </li>
+        <li class="tab">
+          <a href="#familyTab">FAMILY</a>
+        </li>
+        <li class="tab">
+          <a href="#caveTab">CAVE</a>
+        </li>
+        <li class="tab">
+          <a href="#bonusTab">BONUS</a>
+        </li>
+      </ul>
+      <h1 id="score">My Score: 0</h1>
+    </div>
 
-    <div class="container-fluid">
+
+
+    <div class="animals container-fluid">
       <div class="row"><!-- animals row -->
         <div class="col-md-3 tile">
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Dogs</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_dog" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="dog" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_dog" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
-<!-- ================================================================-->
         <div class="col-md-3 tile">
-          <div class="row">
+          <div class="row sheep">
             <div class="col-xs-3 col-md-3 ">Sheep</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_sheep" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="sheep" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_sheep" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
         <div class="col-md-3 tile">
-          <div class="row">
+          <div class="row donkey">
             <div class="col-xs-3 col-md-3 ">Donkeys</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_donkey" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="donkey" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_donkey" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -69,13 +87,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Boars</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_boar" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="boar" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_boar" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -83,32 +101,27 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Cattle</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_cattle" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="cattle" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_cattle" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
-      </div><!--end of animals row-->
-    </div><!--end of container-fluid -->
-
-    <div class="container-fluid">
-      <div class="row"><!-- animals row -->
         <div class="col-md-3 tile">
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Grain</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_grain" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="grain" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_grain" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -116,13 +129,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Vegetable</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_vegetable" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="vegetable" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_vegetable" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -130,13 +143,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Rubies</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_ruby" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="ruby" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_ruby" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -144,13 +157,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Gold</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_gold" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3" id="gold" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_gold" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -158,13 +171,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Begging Cards</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" id="sub_begging" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="baggingCard" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3" id="begging" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" class="btn btn-success" onclick="add()">+</button>
+              <button type="button" id="add_begging" class="btn btn-success" onclick="add(this.id)">+</button>
             </div>
           </div>
         </div>
@@ -174,5 +187,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
   </body>
 </html>

@@ -1,16 +1,22 @@
 #score {
   font-weight: 200;
   padding: 10px;
+  margin-top: -15px;
+
 }
 .tile {
   background-color: #D8D8D8;
-  margin: 5px;
+  margin: 15px 5px;
   padding: 5px;
   min-height: 60px;
   min-width: 300px;
   max-width: 300px;
+  box-shadow: 0px 4px #BCBCBC, 0px 10px 15px rgba(0,0,0,0.2);
 }
 
+.animals {
+  margin-top: 120px;
+}
 .btn {
   min-height: 50px;
   min-width: 50px;
@@ -23,4 +29,9 @@ input[type=text] {
   font-size: 28px;
   font-weight: 200;
   text-align: center;
+}
+
+.tab {
+  padding: 5px;
+  margin: 10px;
 }
