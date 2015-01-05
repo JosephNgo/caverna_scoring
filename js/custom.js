@@ -112,6 +112,20 @@ document.getElementById("simpleDwelling").addEventListener("click", function(){
   updateScore();
 });
 
+var mixedDwelling = function(){
+  if(document.getElementById("mixedDwelling").checked == true){
+    return 4;
+  }
+  else {
+    return 0;
+  }
+}
+
+document.getElementById("mixedDwelling").addEventListener("click", function(){
+  mixedDwelling();
+  updateScore();
+});
+
 var couplesDwelling = function(){
   if(document.getElementById("couplesDwelling").checked == true){
     return 5;
@@ -126,8 +140,22 @@ document.getElementById("couplesDwelling").addEventListener("click", function(){
   updateScore();
 });
 
+var additionalDwelling = function(){
+  if(document.getElementById("additionalDwelling").checked == true){
+    return 5;
+  }
+  else {
+    return 0;
+  }
+}
+
+document.getElementById("additionalDwelling").addEventListener("click", function(){
+  additionalDwelling();
+  updateScore();
+});
+
 var updateScore = function(){
-  var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + couplesDwelling();
+  var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + mixedDwelling() + couplesDwelling() + additionalDwelling();
   document.getElementById("score").innerHTML = ("My Score: " + totalScore );
 }
 
