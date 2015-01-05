@@ -87,10 +87,61 @@ var begging = function(){
   return -(subvalue*3);
 }
 
+var dwarf = function(){
+  subvalue = parseInt(document.getElementById("dwarf").value);
+  return subvalue*3;
+}
+
+var dwelling = function(){
+  subvalue = parseInt(document.getElementById("dwelling").value);
+  return subvalue*2;
+  updateScore();
+}
+
+var simpleDwelling = function(){
+  if(document.getElementById("simpleDwelling").checked == true){
+    return 0;
+  }
+  else {
+    return 0;
+  }
+}
+
+document.getElementById("simpleDwelling").addEventListener("click", function(){
+  simpleDwelling();
+  updateScore();
+});
+
+var couplesDwelling = function(){
+  if(document.getElementById("couplesDwelling").checked == true){
+    return 5;
+  }
+  else {
+    return 0;
+  }
+}
+
+document.getElementById("couplesDwelling").addEventListener("click", function(){
+  couplesDwelling();
+  updateScore();
+});
+
 var updateScore = function(){
-  var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() +begging();
+  var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + couplesDwelling();
   document.getElementById("score").innerHTML = ("My Score: " + totalScore );
 }
 
 updateScore();
 // function wishlist
+
+var tabsContainer = ".tabs-container";
+var selectTabHandler = function(event){
+  $tab = $(this);
+  $(tabsContainer + " li").removeClass('active');
+  $tab.parent().addClass('active');
+  selectedTabName = $tab.attr('href');
+  console.log(selectedTabName);
+  $(".tab-pane").addClass('hidden');
+  $(selectedTabName).removeClass('hidden');
+  event.preventDefault();
+};
