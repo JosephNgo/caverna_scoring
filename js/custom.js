@@ -135,10 +135,10 @@ var couplesDwelling = function(){
   }
 }
 
-document.getElementById("couplesDwelling").addEventListener("click", function(){
-  couplesDwelling();
-  updateScore();
-});
+// document.getElementById("couplesDwelling").addEventListener("click", function(){
+//   couplesDwelling();
+//   updateScore();
+// });
 
 var additionalDwelling = function(){
   if(document.getElementById("additionalDwelling").checked == true){
@@ -149,27 +149,42 @@ var additionalDwelling = function(){
   }
 }
 
-document.getElementById("additionalDwelling").addEventListener("click", function(){
-  additionalDwelling();
+// document.getElementById("additionalDwelling").addEventListener("click", function(){
+//   additionalDwelling();
+//   updateScore();
+// });
+
+
+//function to find the id of 'this' mini-tile
+$(".mini-tile").click(function(){
+  var tileId = ($(this).find("input").attr("id"));
+  console.log(tileId);
+  window[tileId]();
   updateScore();
+  return($(this).find(".bonus-shield").html());
+})
+
+var checkBoxes = document.getElementsByClassName("checkBox");
+
+document.getElementById("carpenter").addEventListener("click", function(){
+  addFive("carpenter");
+
+});
+
+document.getElementById("blacksmith").addEventListener("click", function(){
+  addFive("blacksmith");
+
 });
 
 var updateScore = function(){
   var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + mixedDwelling() + couplesDwelling() + additionalDwelling();
+  updateScoreHTML(totalScore);
+  return totalScore;
+}
+
+var updateScoreHTML = function(totalScore){
   document.getElementById("score").innerHTML = ("My Score: " + totalScore );
 }
 
-updateScore();
+window.onload = updateScore();
 // function wishlist
-
-var tabsContainer = ".tabs-container";
-var selectTabHandler = function(event){
-  $tab = $(this);
-  $(tabsContainer + " li").removeClass('active');
-  $tab.parent().addClass('active');
-  selectedTabName = $tab.attr('href');
-  console.log(selectedTabName);
-  $(".tab-pane").addClass('hidden');
-  $(selectedTabName).removeClass('hidden');
-  event.preventDefault();
-};
