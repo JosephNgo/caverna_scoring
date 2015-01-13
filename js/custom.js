@@ -17,6 +17,10 @@ var add = function(clicked_id){
   updateScore();
 };
 
+var getMultiplier = function(){
+  return 1;
+}
+
 var dog = function(){
   subvalue = parseInt(document.getElementById("dog").value);
   return subvalue;
@@ -140,7 +144,7 @@ var couplesDwelling = function(){
 //   updateScore();
 // });
 
-var additionalDwelling = function(){
+var additionalDwelling = function(bonusValue){
   if(document.getElementById("additionalDwelling").checked == true){
     return 5;
   }
@@ -153,18 +157,33 @@ var additionalDwelling = function(){
 //   additionalDwelling();
 //   updateScore();
 // });
+var checkboxStatus = function(tileId, bonusValue){
+  if(document.getElementById(tileId).checked == true){
+    console.log("checked");
+    addPoints(bonusValue);
+  }
+  else {
+    console.log("unchecked");
+    addPoints(bonusValue*(-1));
+  }
+}
 
+var addPoints = function(bonusValue){
+  console.log("add points:" + bonusValue);
+  updateScore2(bonusValue);
+}
 
 //function to find the id of 'this' mini-tile
 $(".mini-tile").click(function(){
   var tileId = ($(this).find("input").attr("id"));
   console.log(tileId);
-  window[tileId]();
+  var bonusValue = ($(this).find(".bonus-shield").html());
+  console.log(parseInt(bonusValue));
+  window[tileId](bonusValue);
+  checkboxStatus(tileId, bonusValue);
   updateScore();
-  return($(this).find(".bonus-shield").html());
-})
 
-var checkBoxes = document.getElementsByClassName("checkBox");
+})
 
 document.getElementById("carpenter").addEventListener("click", function(){
   addFive("carpenter");
@@ -176,8 +195,48 @@ document.getElementById("blacksmith").addEventListener("click", function(){
 
 });
 
+var tileMap = {
+  "dog": [1,.5],
+  "sheep": [1,-1],
+  "dwarf": [3,0],
+  "dwelling": [2,0]
+};
+
+var tileData = function(){
+  var sum = 0;
+
+  $(".tileData").each(function(){
+    var id = $(this).attr('id');
+    if (parseInt($(this).val())<1){
+      var penalty = tileMap[id][1];
+      sum += penalty;
+    }
+    else {
+      var multiplier = tileMap[id][0];
+      sum += (parseInt($(this).val())*multiplier);
+    }
+  })
+  return sum;
+}
+
+var placeholderScore = 0;
+
+var updateScore2 = function(scoreData) {
+  placeholderScore += parseInt(scoreData);
+  
+  
+  if (placeholderScore !== placeholderScore) {
+    return 0;
+  }
+  else {
+    return placeholderScore;
+  }
+  console.log("updateScore2:" + placeholderScore);
+}
+
+
 var updateScore = function(){
-  var totalScore = dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + mixedDwelling() + couplesDwelling() + additionalDwelling();
+  var totalScore = updateScore2() + dog() + sheep() + donkey() + boar() + cattle() + grain() + vegetable() + ruby() +gold() + begging() + dwarf() + dwelling() + simpleDwelling() + mixedDwelling() + couplesDwelling() + additionalDwelling();
   updateScoreHTML(totalScore);
   return totalScore;
 }

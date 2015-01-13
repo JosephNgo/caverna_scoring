@@ -48,7 +48,7 @@
               <button type="button" id="sub_dog" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="dog" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="dog" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_dog" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -62,7 +62,7 @@
               <button type="button" id="sub_sheep" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="sheep" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="sheep" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_sheep" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -194,7 +194,7 @@
               <button type="button" id="sub_dwarf" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="dwarf" size="2" value="2">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="dwarf" size="2" value="2">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_dwarf" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -208,7 +208,7 @@
               <button type="button" id="sub_dwelling" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="dwelling" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="dwelling" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_dwelling" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -219,19 +219,19 @@
         <div class="col-md-3 ">
           <div class="row">
             <div class="col-xs-6 col-md-6 mini-tile" >
-              <input type="checkbox" id="simpleDwelling" class="checkBox">
+              <input type="checkbox" id="simpleDwelling" class="checkBox" value="0">
               Simple Dwelling <span class="bonus-shield">0</span> 
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="mixedDwelling" class="checkBox">
+              <input type="checkbox" id="mixedDwelling" class="checkBox" value="4">
               Mixed Dwelling <span class="bonus-shield">4</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="couplesDwelling" class="checkBox">
+              <input type="checkbox" id="couplesDwelling" class="checkBox" value="5">
               Couples Dwelling <span class="bonus-shield">5</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="additionalDwelling" class="checkBox">
+              <input type="checkbox" id="additionalDwelling" class="checkBox" value="5">
               Additional Dwelling <span class="bonus-shield">5</span>
             </div>  
           </div>
