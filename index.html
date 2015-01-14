@@ -22,19 +22,21 @@
     <div class="navbar navbar-default navbar-fixed-top tabs-container">
       <ul class="scoring-pagination pagination tabs">
         <li class="tab">
-          <a href="#wealthTab">WEALTH</a>
+          <a href="#" class="cust-btn" data-slide-id="wealthTab">WEALTH</a>
         </li>
         <li class="tab">
-          <a href="#familyTab">FAMILY</a>
+          <a href="#" class="cust-btn" data-slide-id="familyTab">FAMILY</a>
         </li>
         <li class="tab">
-          <a href="#caveTab">CAVE</a>
+          <a href="#" class="cust-btn" data-slide-id="caveTab">CAVE</a>
         </li>
         <li class="tab">
-          <a href="#bonusTab">BONUS</a>
+          <a href="#" class="cust-btn" data-slide-id="bonusTab">BONUS</a>
         </li>
       </ul>
-      <h1 id="score">My Score: 0</h1>
+    </div>
+    <div id="score">
+      My Score: 0
     </div>
 
 
@@ -76,7 +78,7 @@
               <button type="button" id="sub_donkey" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="donkey" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="donkey" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_donkey" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -90,7 +92,7 @@
               <button type="button" id="sub_boar" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="boar" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="boar" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_boar" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -104,7 +106,7 @@
               <button type="button" id="sub_cattle" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="cattle" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="cattle" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_cattle" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -118,7 +120,7 @@
               <button type="button" id="sub_grain" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="grain" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="grain" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_grain" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -132,7 +134,7 @@
               <button type="button" id="sub_vegetable" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="vegetable" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="vegetable" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_vegetable" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -146,7 +148,7 @@
               <button type="button" id="sub_ruby" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="ruby" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="ruby" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_ruby" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -160,7 +162,7 @@
               <button type="button" id="sub_gold" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="gold" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="gold" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_gold" class="btn btn-success" onclick="add(this.id)">+</button>
@@ -174,7 +176,7 @@
               <button type="button" id="sub_begging" class="btn btn-danger" onclick="subtract(this.id)">-</button>
             </div>
             <div >
-              <input type="text" class="col-xs-3 col-md-3" id="begging" size="2" value="0">
+              <input type="text" class="col-xs-3 col-md-3 tileData" id="begging" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
               <button type="button" id="add_begging" class="btn btn-success" onclick="add(this.id)">+</button>
