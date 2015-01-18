@@ -47,13 +47,15 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Dogs</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_dog" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="dog" class="btn btn-danger" onclick="subtract()">-</button>
+              // this data-item instead of id="sub_dog" allows you to reduce the amount of code in your js
+              // data-item should be used in place of each id, and the sub_ and add_ prefixes can be removed
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="dog" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_dog" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="dog" class="btn btn-success" onclick="add()">+</button>
             </div>
           </div>
         </div>
