@@ -21,29 +21,6 @@ var add = function(clicked_id){
   updateScore();
 };
 
-var checkboxStatus = function(tileId, bonusValue){
-  if(document.getElementById(tileId).checked == true){
-    console.log("checked");
-    addPoints(bonusValue);
-  }
-  else {
-    console.log("unchecked");
-    addPoints(bonusValue*(-1));
-  }
-}
-
-//function to find the id of 'this' mini-tile
-$(".mini-tile").click(function(){
-  var tileId = ($(this).find("input").attr("id"));
-  console.log(tileId);
-  var bonusValue = ($(this).find(".bonus-shield").html());
-  console.log(parseInt(bonusValue));
-  window[tileId](bonusValue);
-  checkboxStatus(tileId, bonusValue);
-  updateScore();
-
-})
-
 var tileMap = {
   "dog": [0,1], // "inputID": [multiplier under 1, multiplier over 1]
   "sheep": [-1,1],
@@ -80,7 +57,39 @@ var tileData = function(){
   return Math.round(sum);
 }
 
-tileData();
+var checkboxStatus = function(tileId, bonusValue){
+  if(document.getElementById(tileId).checked == true){
+    console.log("checked");
+    return(bonusValue);
+  }
+  else {
+    console.log("unchecked");
+    return(bonusValue*(-1));
+  }
+}
+
+//function to find the id of 'this' mini-tile
+// $(".mini-tile").click(function(){
+//   var tileId = ($(this).find("input").attr("id"));
+//   console.log(tileId);
+//   var bonusValue = parseInt($(this).find(".bonus-shield").html());
+//   console.log(bonusValue);
+// })
+
+var simpleAddTile = function() {
+  var sum = 0;
+  $(".mini-tile").each(function(){
+    var tileId = $(this).find("input").attr("id");
+    var bonusValue = parseInt($(this).find(".bonus-shield").html());
+    if($('"input#'+tileId+'"').is(":checked")){
+      sum += bonusValue;
+      console.log("checked");
+    }
+    console.log(tileId + sum);
+  })
+
+  return sum;
+}
 
 var updateScore = function(){
   var totalScore = tileData();
