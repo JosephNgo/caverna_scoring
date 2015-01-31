@@ -76,23 +76,34 @@ var checkboxStatus = function(tileId, bonusValue){
 //   console.log(bonusValue);
 // })
 
-var simpleAddTile = function() {
-  var sum = 0;
-  $(".mini-tile").each(function(){
-    var tileId = $(this).find("input").attr("id");
-    var bonusValue = parseInt($(this).find(".bonus-shield").html());
-    if($('"input#'+tileId+'"').is(":checked")){
-      sum += bonusValue;
-      console.log("checked");
-    }
-    console.log(tileId + sum);
-  })
 
+$(".simpleAddTile").click(function(){
+  // var bonusValue = $(this).val();
+  // if($(this).is(":checked")){
+  //   simpleAddTileSum(bonusValue);
+  // }
+
+  updateScore();
+})
+
+var simpleAddTileSum = function() {
+  var sum = 0;
+  // sum += bonusValue;
+
+
+  $(".simpleAddTile").each(function(){
+    if($(this).checked){
+      sum += parseInt($(this).val());
+      console.log("test");
+    }
+    console.log($(this).val());
+  })
+  // console.log(sum);
   return sum;
 }
 
 var updateScore = function(){
-  var totalScore = tileData();
+  var totalScore = tileData() + simpleAddTileSum();
   updateScoreHTML(totalScore);
   return totalScore;
 }
