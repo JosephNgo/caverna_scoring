@@ -5,17 +5,13 @@ $(".cust-btn").click(function(){
   $(toggleDiv).slideToggle(1000);
 })
 
-var subtract = function(){
-  var elementId = $(this).data("item");
-  // use data-item="something" in the HTML instead of id="sub_something"
-  // data is a better way to store information in the DOM than id or class
-  var updatedVal = $(elementId).val() --;
-  
-  $(elementId).val( updatedVal );
+var subtract = function(clicked_id){
+  mystring=clicked_id.replace(/^sub_/,"");
+  var subvalue = parseInt(document.getElementById(mystring).value);
+  subvalue --;
+  document.getElementById(mystring).value = subvalue;
   updateScore();
 };
-// the add function below can be updated in the same way
-// refer to the HTML to see the changes made there
 
 var add = function(clicked_id){
   mystring=clicked_id.replace(/^add_/,"");
@@ -25,74 +21,66 @@ var add = function(clicked_id){
   updateScore();
 };
 
-var checkboxStatus = function(tileId, bonusValue){
-  if(document.getElementById(tileId).checked == true){
-    console.log("checked");
-    addPoints(bonusValue);
-  }
-  else {
-    console.log("unchecked");
-    addPoints(bonusValue*(-1));
-  }
-}
-
-//function to find the id of 'this' mini-tile
-$(".mini-tile").click(function(){
-  var tileId = ($(this).find("input").attr("id"));
-  console.log(tileId);
-  var bonusValue = ($(this).find(".bonus-shield").html());
-  console.log(parseInt(bonusValue));
-  window[tileId](bonusValue);
-  checkboxStatus(tileId, bonusValue);
-  updateScore();
-
-})
-
 var tileMap = {
-  // is "tileMap" the best way to describe this object? or is that how it's referred to in the game?
-  // just wondering if there might be a better variable name for this.
-  // instead of an array to hold the multiplier values, use another object so
-  // that the key can be used in the function to more easily understand the logic
-  // example:
-  "dog" : { "zero" : 0, "positive" : 1 },
-  // where if the player has "zero" of the item, then the multiplier is 0, and
-  // if the player has a "positive" value for the item, then the multiplier is 1 ...
-  // or whatever else the value may be
-  "sheep" : { "zero" : -1, "positive" : 1 },
-  "dog" : { "zero" : -1, "positive" : 1 },
-  // etc.
+  "dog": [0,1], // "inputID": [multiplier under 1, multiplier over 1]
+  "sheep": [-1,1],
+  "donkey": [-1,1],
+  "boar": [-1,1],
+  "cattle": [-1,1],
+  "grain": [0, 0.5],
+  "vegetable": [0, 1], 
+  "ruby": [0,1],
+  "gold": [0, 1],
+  "begging": [0, -3],
+  "dwarf": [0,3],
+  "dwelling": [0,2]
 };
 
 var tileData = function(){
   var sum = 0;
-  
-  $(".tileData").each(function(){
-    var item = $(this).attr('id');
-    // perhaps "item" is a better descriptor  than "id" for each single item in the list above
-    // (ie. "dog", "sheep", etc.) ... but this is just a personal opinion.
-    // i could be convinced that "id" is equally suitable
-    var inputData = parseInt($(this).val());
-    var multiplier = inputData == 0 ? "zero" : "positive";
-    // this is another way to write if inputData is equal to 0, then multiplier = "zero",
-    // else multiplier = "positive"
-    // if it's possible for inputData to be less than 0, as you originally wrote it,
-    // then "zero" can easily be changed to some other identifier, and
-    // the if statement can change the boolean from inputData == 0 to inputData < 1
-    sum += inputData * tileMap[item][multiplier];
-    // sum is equal to inputData multiplied by the multiplier of the tileMap's item
-    // tileMap[dog][positive] = 1
-    // tielMap.dog.positive = 1
-    // this is where using the object inside of the object comes in handy, as tileMap[item][multiplier]
-    // should be easier to understand than tileMap[id][1]
-  });
-  
-  return Math.round(sum);
-};
 
-tileData();
+  $(".tileData").each(function(){
+    var id = $(this).attr('id');
+    var inputData = parseInt($(this).val());
+    var tileScore = 0;
+
+    if (inputData < 1){
+      var penalty = tileMap[id][0];
+      tileScore = penalty;
+      sum += tileScore;
+    }
+    else {
+      var multiplier = tileMap[id][1];
+      tileScore = inputData * multiplier;
+      sum += tileScore;
+    }
+
+  });
+  return Math.round(sum);
+}
+
+var simpleAddTileSum = function() {
+  var sum = 0;
+
+  $(".simpleAddTile").each(function(){
+    var tile = $(this);
+    var tileValue = parseInt(tile.val());
+    var isChecked = tile.prop("checked");
+
+    if( isChecked ){
+      sum += tileValue;
+    }
+  });
+
+  return sum;
+}
+
+$(".simpleAddTile").click(function(){
+  updateScore();
+})
 
 var updateScore = function(){
-  var totalScore = tileData();
+  var totalScore = tileData() + simpleAddTileSum();
   updateScoreHTML(totalScore);
   return totalScore;
 }
