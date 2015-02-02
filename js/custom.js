@@ -5,27 +5,24 @@ $(".cust-btn").click(function(){
   $(toggleDiv).slideToggle(1000);
 })
 
-var subtract = function(){
-  var elementId = $(this).data("item");
+var subtract = function(elementId){
+  var elementId = "#" + $(elementId).data("item");
   // use data-item="something" in the HTML instead of id="sub_something"
   // data is a better way to store information in the DOM than id or class
-  var updatedVal = $(elementId).val() --;
-  
+  var updatedVal = $(elementId).val();
+  updatedVal--;
   $(elementId).val( updatedVal );
   updateScore();
 };
 // the add function below can be updated in the same way
 // refer to the HTML to see the changes made there
 
-var add = function(){
-  // mystring=clicked_id.replace(/^add_/,"");
-  // var subvalue = parseInt(document.getElementById(mystring).value);
-  // subvalue ++;
-  // document.getElementById(mystring).value = subvalue;
-  var elementId = $(this).data("item");
-
-  // var updatedVal = $(elementId).val()++;
-  console.log(elementId);
+var add = function(elementId){
+  // var elementId = $(this).attr("class"); //this keeps returning 'undefined'
+  var elementId = "#" + $(elementId).data("item");
+  var updatedVal = $(elementId).val();
+  updatedVal++;
+  $(elementId).val( updatedVal );
   updateScore();
 };
 
@@ -44,12 +41,13 @@ var tileMap = {
   "donkey" : { "zero" : -1, "positive" : 1 },
   "boar" : { "zero" : -1, "positive" : 1 },
   "cattle" : { "zero" : -1, "positive" : 1 },
-  "grain" : { "zero" : 0, "positive" : 1 },
+  "grain" : { "zero" : 0, "positive" : 0.5 },
   "vegetable" : { "zero" : 0, "positive" : 1 },
   "ruby" : { "zero" : 0, "positive" : 1 },
   "gold" : { "zero" : 0, "positive" : 1 },
   "begging" : { "zero" : 0, "positive" : -3 },
-  // etc.
+  "dwarf" : { "zero" : 0, "positive" : 3 },
+  "dwelling" : { "zero" : 0, "positive" : 2 }
 };
 
 var tileData = function(){
@@ -73,50 +71,31 @@ var tileData = function(){
     // tielMap.dog.positive = 1
     // this is where using the object inside of the object comes in handy, as tileMap[item][multiplier]
     // should be easier to understand than tileMap[id][1]
+    // sum += tileMap[item][multiplier];
+    // console.log(item + ":" + inputData + ":" + multiplier);
+    // console.log(tileMap[item][multiplier]);
+
+    if(inputData < 0){
+      sum += tileMap[item][multiplier];
+    }
+    else {
+      sum += inputData * tileMap[item][multiplier];
+    }
   });
-  
+  console.log(sum);
   return Math.round(sum);
 };
 
-var checkboxStatus = function(tileId, bonusValue){
-  if(document.getElementById(tileId).checked == true){
-    console.log("checked");
-    return(bonusValue);
-  }
-  else {
-    console.log("unchecked");
-    return(bonusValue*(-1));
-  }
-}
-
-//function to find the id of 'this' mini-tile
-// $(".mini-tile").click(function(){
-//   var tileId = ($(this).find("input").attr("id"));
-//   console.log(tileId);
-//   var bonusValue = parseInt($(this).find(".bonus-shield").html());
-//   console.log(bonusValue);
-// })
-
-
 $(".simpleAddTile").click(function(){
-  // var bonusValue = $(this).val();
-  // if($(this).is(":checked")){
-  //   simpleAddTileSum(bonusValue);
-  // }
-
   updateScore();
 })
 
 var simpleAddTileSum = function() {
   var sum = 0;
-  // sum += bonusValue;
-
-
   $(".simpleAddTile").each(function(){
     if($(this).is(":checked")){
       sum += parseInt($(this).val());
     }
-    // console.log($(this).val());
   })
   console.log(sum);
   return sum;

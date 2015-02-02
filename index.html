@@ -47,7 +47,7 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Dogs</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" data-item="dog" class="btn btn-danger" onclick="subtract()">-</button>
+              <button type="button" data-item="dog" class="btn btn-danger" onclick="subtract(this)">-</button>
             <!--   // this data-item instead of id="sub_dog" allows you to reduce the amount of code in your js
               // data-item should be used in place of each id, and the sub_ and add_ prefixes can be removed -->
             </div>
@@ -55,7 +55,7 @@
               <input type="text" class="col-xs-3 col-md-3 tileData" id="dog" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" data-item="dog" class="btn btn-success" onclick="add()" data-value="dog">+</button>
+              <button type="button" data-item="dog" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -63,13 +63,13 @@
           <div class="row sheep">
             <div class="col-xs-3 col-md-3 ">Sheep</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_sheep" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="sheep" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="sheep" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_sheep" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="sheep" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -77,13 +77,13 @@
           <div class="row donkey">
             <div class="col-xs-3 col-md-3 ">Donkeys</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_donkey" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="donkey" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="donkey" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_donkey" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="donkey" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -91,13 +91,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Boars</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_boar" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="boar" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="boar" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_boar" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="boar" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -105,13 +105,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Cattle</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_cattle" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="cattle" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="cattle" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_cattle" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="cattle" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -119,13 +119,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Grain</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_grain" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="grain" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="grain" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_grain" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="grain" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -133,13 +133,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Vegetable</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_vegetable" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="vegetable" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="vegetable" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_vegetable" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="vegetable" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -147,13 +147,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Rubies</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_ruby" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="ruby" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="ruby" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_ruby" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="ruby" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -161,13 +161,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Gold</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_gold" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="gold" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="gold" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_gold" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="gold" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -175,13 +175,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Begging Cards</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_begging" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="begging" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="begging" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_begging" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="begging" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -195,13 +195,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Dwarfs</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_dwarf" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="dwarf" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="dwarf" size="2" value="2">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_dwarf" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="dwarf" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -209,13 +209,13 @@
           <div class="row">
             <div class="col-xs-3 col-md-3 ">Dwellings</div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="sub_dwelling" class="btn btn-danger" onclick="subtract(this.id)">-</button>
+              <button type="button" data-item="dwelling" class="btn btn-danger" onclick="subtract(this)">-</button>
             </div>
             <div >
               <input type="text" class="col-xs-3 col-md-3 tileData" id="dwelling" size="2" value="0">
             </div>
             <div class="col-xs-3 col-md-3">
-              <button type="button" id="add_dwelling" class="btn btn-success" onclick="add(this.id)">+</button>
+              <button type="button" data-item="dwelling" class="btn btn-success" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -301,47 +301,47 @@
               Cuddle Room <span class="bonus-shield">2</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="breakfastRoom" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="breakfastRoom" class="checkBox simpleAddTile" value="0">
               Breakfast Room <span class="bonus-shield">0</span>
             </div>  
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="stubbleRoom" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="stubbleRoom" class="checkBox simpleAddTile" value="1">
               Stubble Room <span class="bonus-shield">1</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="workRoom" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="workRoom" class="checkBox simpleAddTile" value="2">
               Work Room <span class="bonus-shield">2</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile" >
-              <input type="checkbox" id="guestRoom" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="guestRoom" class="checkBox simpleAddTile" value="0">
               Guest Room <span class="bonus-shield">0</span> 
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="officeRoom" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="officeRoom" class="checkBox simpleAddTile" value="0">
               Office Room <span class="bonus-shield">0</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="woodSupplier" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="woodSupplier" class="checkBox simpleAddTile" value="2">
               Wood Supplier <span class="bonus-shield">2</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="stoneSupplier" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="stoneSupplier" class="checkBox simpleAddTile" value="1">
               Stone Supplier <span class="bonus-shield">1</span>
             </div> 
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="rubySupplier" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="rubySupplier" class="checkBox simpleAddTile" value="2">
               Ruby Supplier <span class="bonus-shield">2</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile" >
-              <input type="checkbox" id="dogSchool" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="dogSchool" class="checkBox simpleAddTile" value="0">
               Dog School <span class="bonus-shield">0</span> 
             </div> 
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="quary" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="quary" class="checkBox simpleAddTile" value="2">
               Quary <span class="bonus-shield">2</span>
             </div>
             <div class="col-xs-6 col-md-6 mini-tile">
-              <input type="checkbox" id="seam" class="checkBox simpleAddTile" value="5">
+              <input type="checkbox" id="seam" class="checkBox simpleAddTile" value="1">
               Seam <span class="bonus-shield">1</span>
             </div> 
           </div>
