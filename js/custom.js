@@ -17,11 +17,15 @@ var subtract = function(){
 // the add function below can be updated in the same way
 // refer to the HTML to see the changes made there
 
-var add = function(clicked_id){
-  mystring=clicked_id.replace(/^add_/,"");
-  var subvalue = parseInt(document.getElementById(mystring).value);
-  subvalue ++;
-  document.getElementById(mystring).value = subvalue;
+var add = function(){
+  // mystring=clicked_id.replace(/^add_/,"");
+  // var subvalue = parseInt(document.getElementById(mystring).value);
+  // subvalue ++;
+  // document.getElementById(mystring).value = subvalue;
+  var elementId = $(this).data("item");
+
+  // var updatedVal = $(elementId).val()++;
+  console.log(elementId);
   updateScore();
 };
 
@@ -31,12 +35,20 @@ var tileMap = {
   // instead of an array to hold the multiplier values, use another object so
   // that the key can be used in the function to more easily understand the logic
   // example:
-  "dog" : { "zero" : 0, "positive" : 1 },
+  // "dog" : { "zero" : 0, "positive" : 1 },
   // where if the player has "zero" of the item, then the multiplier is 0, and
   // if the player has a "positive" value for the item, then the multiplier is 1 ...
   // or whatever else the value may be
   "sheep" : { "zero" : -1, "positive" : 1 },
   "dog" : { "zero" : -1, "positive" : 1 },
+  "donkey" : { "zero" : -1, "positive" : 1 },
+  "boar" : { "zero" : -1, "positive" : 1 },
+  "cattle" : { "zero" : -1, "positive" : 1 },
+  "grain" : { "zero" : 0, "positive" : 1 },
+  "vegetable" : { "zero" : 0, "positive" : 1 },
+  "ruby" : { "zero" : 0, "positive" : 1 },
+  "gold" : { "zero" : 0, "positive" : 1 },
+  "begging" : { "zero" : 0, "positive" : -3 },
   // etc.
 };
 
@@ -55,7 +67,7 @@ var tileData = function(){
     // if it's possible for inputData to be less than 0, as you originally wrote it,
     // then "zero" can easily be changed to some other identifier, and
     // the if statement can change the boolean from inputData == 0 to inputData < 1
-    sum += inputData * tileMap[item][multiplier];
+    // sum += inputData * tileMap[item][multiplier];
     // sum is equal to inputData multiplied by the multiplier of the tileMap's item
     // tileMap[dog][positive] = 1
     // tielMap.dog.positive = 1
@@ -101,13 +113,12 @@ var simpleAddTileSum = function() {
 
 
   $(".simpleAddTile").each(function(){
-    if($(this).checked){
+    if($(this).is(":checked")){
       sum += parseInt($(this).val());
-      console.log("test");
     }
-    console.log($(this).val());
+    // console.log($(this).val());
   })
-  // console.log(sum);
+  console.log(sum);
   return sum;
 }
 
