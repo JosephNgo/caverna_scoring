@@ -75,7 +75,7 @@ var tileData = function(){
     // console.log(item + ":" + inputData + ":" + multiplier);
     // console.log(tileMap[item][multiplier]);
 
-    if(inputData < 0){
+    if(inputData < 1){
       sum += tileMap[item][multiplier];
     }
     else {
@@ -108,7 +108,7 @@ var updateScore = function(){
 }
 
 var updateScoreHTML = function(totalScore){
-  document.getElementById("score").innerHTML = ("My Score: " + totalScore );
+  document.getElementById("score").innerHTML = ( totalScore );
 }
 
 window.onload = updateScore();
